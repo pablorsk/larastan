@@ -71,6 +71,15 @@ trait HasContainer
             // ..
         }
 
+        if ($concrete === null) {
+            return new class() {
+                public function get($key)
+                {
+                    return [];
+                }
+            };
+        }
+
         return $concrete;
     }
 }
